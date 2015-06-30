@@ -1,0 +1,20 @@
+{# src/Blogger/BlogBundle/Resources/views/Page/login.html.twig #}
+{% extends 'BloggerBlogBundle::layout.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+    <header>
+        <h1>Login symblog</h1>
+    </header>
+
+    <p>You have granted access as :
+        {% if is_granted('ROLE_ADMIN') %}
+            Administrator
+            {%  else %}
+            User
+        {% endif %}
+    </p>
+
+
+{% endblock %}

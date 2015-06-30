@@ -1,0 +1,41 @@
+security:
+    encoders:
+        Blogger\BlogBundle\Entity\User:
+            algorithm: bcrypt
+
+    providers:
+        our_db_provider:
+            entity:
+                class: BloggerBlogBundle:User
+                property: username
+                # if you're using multiple entity managers
+                # manager_name: customer
+        in_memory:
+            memory: ~
+
+    firewalls:
+
+        dev:
+            pattern: ^/(_(profiler|wdt|error)|css|images|js)/
+            security: false
+
+        default:
+            anonymous: ~
+            http_basic: ~
+            provider: our_db_provider
+            form_login:
+                login_path: /login
+                check_path: /login_check
+                csrf_provider: security.csrf.token_manager
+            logout:
+                path:   /logout
+                target: /
+
+
+        main:
+            anonymous: ~
+
+
+    access_control:
+        # require ROLE_ADMIN for /admin*
+        - { path: ^/admin, roles: IS_AUTHENTICATED_REMEMBERED }

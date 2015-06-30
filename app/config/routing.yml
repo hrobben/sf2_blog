@@ -1,0 +1,14 @@
+blogger_blog:
+    resource: "@BloggerBlogBundle/Resources/config/routing.yml"
+    prefix:   /
+
+admin:
+    path:   /admin
+    defaults: { _controller: BloggerBlogBundle:Security:admin }
+
+logout:
+    path:   /logout
+
+app:
+    resource: "@BloggerBlogBundle/Controller/"
+    type:     annotation
