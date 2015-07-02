@@ -5,6 +5,8 @@ namespace Blogger\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 /**
  * @ORM\Entity(repositoryClass="Blogger\BlogBundle\Entity\Repository\BlogRepository")
@@ -65,12 +67,31 @@ class Blog
      */
     protected $updated;
 
-    public function __construct()
+   public function __construct()
     {
         $this->comments = new ArrayCollection();
 
         $this->setCreated(new \DateTime());
         $this->setUpdated(new \DateTime());
+    }
+
+    /**
+     * @param ClassMetadata $metadata
+     */
+    public static function loadValidatorMetadata(ClassMetadata $metadata)
+    {
+        $metadata->addPropertyConstraint('title', new NotBlank(array(
+            'message' => 'You must enter a title'
+        )));
+        $metadata->addPropertyConstraint('blog', new NotBlank(array(
+            'message' => 'You must enter little bit blog?'
+        )));
+        $metadata->addPropertyConstraint('author', new NotBlank(array(
+            'message' => 'You must enter your name!'
+        )));
+        $metadata->addPropertyConstraint('tags', new NotBlank(array(
+            'message' => 'You must enter minimal one tag'
+        )));
     }
 
     public function slugify($text)
@@ -197,7 +218,7 @@ class Blog
      */
     public function setImage($image)
     {
-        $this->image = $image;
+         $this->image = $image;
 
         return $this;
     }

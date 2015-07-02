@@ -1,0 +1,8 @@
+{# src/Blogger/BlogBundle/Resources/views/Blog/form.html.twig #}
+
+<form action="{{ path('BloggerBlogBundle_blog_edit', { 'blog_id' : blog.id } ) }}" method="post" {{ form_enctype(form) }} class="blogger">
+    {{ form_widget(form) }}
+    <p>
+        <input type="submit" value="Submit">
+    </p>
+</form>

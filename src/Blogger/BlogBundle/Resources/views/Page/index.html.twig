@@ -3,6 +3,9 @@
 {% extends 'BloggerBlogBundle::layout.html.twig' %}
 
 {% block body %}
+    {% if is_granted("ROLE_ADMIN") %}
+        <a href="{{ path('BloggerBlogBundle_blog_create') }}">[[Write New BLOG]]</a>
+    {% endif %}
     {% for blog in blogs %}
         <article class="blog">
             <div class="date">
@@ -14,10 +17,9 @@
                 </h2>
             </header>
 
-            <img src="{{ asset(['images/', blog.image]|join) }}"/>
-
+            {# <img src="{{ asset(['images/', blog.image]|join) }}"/> #}
             <div class="snippet">
-                <p>{{ blog.blog(500) }}</p>
+                <p>{{ blog.blog(500) | trans | raw }}</p>
 
                 <p class="continue"><a
                             href="{{ path('BloggerBlogBundle_blog_show', { 'id': blog.id, 'slug': blog.slug }) }}">Continue

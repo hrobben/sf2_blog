@@ -52,6 +52,9 @@ class Comment
      */
     protected $updated;
 
+    /**
+     * @param ClassMetadata $metadata
+     */
     public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
         $metadata->addPropertyConstraint('user', new NotBlank(array(

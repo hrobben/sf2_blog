@@ -23,7 +23,8 @@
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "doctrine/data-fixtures" : "dev-master",
         "doctrine/doctrine-migrations-bundle": "dev-master",
-        "doctrine/migrations": "dev-master"
+        "doctrine/migrations": "dev-master",
+        "egeloen/ckeditor-bundle": "~2.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

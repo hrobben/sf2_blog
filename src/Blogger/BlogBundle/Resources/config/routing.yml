@@ -30,8 +30,22 @@ BloggerBlogBundle_comment_create:
         _method:  POST
         blog_id: \d+
 
+BloggerBlogBundle_blog_edit:
+    pattern:  /blog/{blog_id}
+    defaults: { _controller: BloggerBlogBundle:Blog:edit }
+    requirements:
+        _method:  GET|POST
+        blog_id: \d+
+
+BloggerBlogBundle_blog_create:
+    pattern:  /create
+    defaults: { _controller: BloggerBlogBundle:Blog:create }
+    requirements:
+        _method:  GET|POST
+        blog_id: \d+
+
 BloggerBlogBundle_comment_delete:
-    pattern:  /{comment_id}
+    pattern:  /comment/{comment_id}
     defaults: { _controller: BloggerBlogBundle:Comment:delete }
     requirements:
         _method:  GET
