@@ -1,64 +1,97 @@
-<!-- app/Resources/views/base.html.twig -->
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html"; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{{ asset('favicon.ico') }}">
+
     <title>{% block title %}Corry Scheepens{% endblock %} - Digieet</title>
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
     {% block stylesheets %}
-        <link href='http://fonts.googleapis.com/css?family=Irish+Grover' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=La+Belle+Aurore' rel='stylesheet' type='text/css'>
-        {% stylesheets
-        'css/*'
-        %}
-        <link href="{{ asset_url }}" rel="stylesheet" media="screen" />
-        {% endstylesheets %}
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('bundles/bloggerblog/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('bundles/bloggerblog/css/bsblog.css') }}" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="{{ asset('bundles/bloggerblog/js/ie8-responsive-file-warning.js') }}"></script><![endif]-->
+    <script src="{{ asset('bundles/bloggerblog/js/ie-emulation-modes-warning.js') }}"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
     {% endblock %}
-    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
 </head>
+
 <body>
 
-<section id="wrapper">
-    <header id="header">
-        <div class="top">
-            {% block navigation %}
-                <nav>
-                    <ul class="navigation">
-                        <li><a href="{{ path('BloggerBlogBundle_homepage') }}">Home</a></li>
-                        <li><a href="{{ path('BloggerBlogBundle_about') }}">About</a></li>
-                        <li><a href="{{ path('BloggerBlogBundle_contact') }}">Contact</a></li>
-                        {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
-                                <li><a href="{{ path('logout') }}">Logout</a></li>
-                            {% else %}
-                                <li><a href="{{ path('admin') }}">Login</a></li>
-                        {% endif %}
-                    </ul>
-                </nav>
-            {% endblock %}
-        </div>
-
-        <hgroup>
-            <h2>{% block blog_title %}<a href="{{ path('BloggerBlogBundle_homepage') }}">Digieet</a>{% endblock %}</h2>
-            <h3>{% block blog_tagline %}<a href="{{ path('BloggerBlogBundle_homepage') }}">Lekker eten & gewichtsvermindering!</a>{% endblock %}</h3>
-        </hgroup>
-    </header>
-
-    <section class="main-col">
-        {% block body %}{% endblock %}
-    </section>
-    <aside class="sidebar">
-        {% block sidebar %}{% endblock %}
-    </aside>
-
-    <div id="footer">
-        {% block footer %}
-            Symfony2 blog tutorial - created by <a href="https://github.com/dsyph3r">dsyph3r</a>
+<div class="blog-masthead">
+    <div class="container">
+        {% block navigation %}
+        <nav class="blog-nav">
+            <a class="blog-nav-item active" href="{{ path('BloggerBlogBundle_homepage') }}">Home</a>
+            <a class="blog-nav-item" href="{{ path('BloggerBlogBundle_about') }}">About</a>
+            <a class="blog-nav-item" href="{{ path('BloggerBlogBundle_contact') }}">Contact</a>
+            {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
+                <a class="blog-nav-item" href="{{ path('logout') }}">Logout</a>
+            {% else %}
+                <a class="blog-nav-item" href="{{ path('admin') }}">Login</a>
+            {% endif %}
+        </nav>
         {% endblock %}
     </div>
-</section>
+</div>
 
-{% block javascripts %}{% endblock %}
+<div class="container">
+
+    <div class="blog-header">
+        <h1 class="blog-title">{% block blog_title %}<a href="{{ path('BloggerBlogBundle_homepage') }}">Digieet</a>{% endblock %}</h1>
+        <p class="lead blog-description">{% block blog_tagline %}<a href="{{ path('BloggerBlogBundle_homepage') }}">Lekker eten & gewichtsvermindering!</a>{% endblock %}</p>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-8 blog-main">
+            {% block body %}{% endblock %}
+
+            <nav>
+                <ul class="pager">
+                    <li><a href="#">Previous</a></li>
+                    <li><a href="#">Next</a></li>
+                </ul>
+            </nav>
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+            {% block sidebar %}{% endblock %}
+        </div><!-- /.blog-sidebar -->
+
+    </div><!-- /.row -->
+
+</div><!-- /.container -->
+
+<footer class="blog-footer">
+    <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+    <p>
+        <a href="#">Back to top</a>
+    </p>
+</footer>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="{{ asset('bundles/bloggerblog/js/bootstrap.min.js') }}"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="{{ asset('bundles/bloggerblog/js/ie10-viewport-bug-workaround.js') }}"></script>
 </body>
 </html>
