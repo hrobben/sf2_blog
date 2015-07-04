@@ -3,10 +3,13 @@
 
 namespace Blogger\BlogBundle\Controller;
 
+use Blogger\BlogBundle\Entity\About;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Blogger\BlogBundle\Entity\Enquiry;
+use Blogger\BlogBundle\Entity\Abouts;
 use Blogger\BlogBundle\Entity\User;
 use Blogger\BlogBundle\Form\EnquiryType;
+use Blogger\BlogBundle\Form\AboutType;
 use Blogger\BlogBundle\Form\UserType;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -27,9 +30,30 @@ class PageController extends Controller
         ));
     }
 
-    public function aboutAction()
+    public function aboutAction(Request $request)
     {
-        return $this->render('BloggerBlogBundle:Page:about.html.twig');
+        $path = $this->get('kernel')->getRootDir() . '/config/about.txt';
+        $About = new Abouts();
+        $About->setInhoud(file_get_contents($path));
+        $form = $this->createForm(new AboutType(), $About);
+
+        //$request = $this->getRequest();  decrepiated in future version 3.0
+        if ($request->getMethod() === 'POST') {
+            // $form->bind($request);  decrepiated Near Future
+            $form->handleRequest($request);
+
+            if ($form->isValid()) {
+                // Perform some action, such as sending an email
+                file_put_contents($path, $About->getInhoud());
+                // Redirect - This is important to prevent users re-posting
+                // the form if they refresh the page
+            }
+        }
+
+        return $this->render('BloggerBlogBundle:Page:about.html.twig', array(
+            'form' => $form->createView(),
+            'textfile' => $About->getInhoud()
+        ));
     }
 
     public function contactAction(Request $request)

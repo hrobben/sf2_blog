@@ -8,7 +8,7 @@ BloggerBlogBundle_about:
     pattern:  /about
     defaults: { _controller: BloggerBlogBundle:Page:about }
     requirements:
-        _method:  GET
+        _method:  GET|POST
 
 BloggerBlogBundle_contact:
     pattern:  /contact
