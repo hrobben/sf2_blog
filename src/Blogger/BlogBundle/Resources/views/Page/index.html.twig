@@ -4,7 +4,7 @@
 
 {% block body %}
     {% if is_granted("ROLE_ADMIN") %}
-        <a href="{{ path('BloggerBlogBundle_blog_create') }}">[[Write New BLOG]]</a>
+        <a href="{{ path('BloggerBlogBundle_blog_create') }}"><button type="button" class="btn btn-default">Write New BLOG</button></a>
     {% endif %}
     {% for blog in blogs %}
         <article class="blog">

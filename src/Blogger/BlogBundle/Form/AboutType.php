@@ -14,11 +14,23 @@ class AboutType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('inhoud', 'textarea', array(
-                'attr' => array(
-                    'class' => 'tinymce',
-                    'data-theme' => 'advanced' // Skip it if you want to use default theme
-                )
+            ->add('inhoud', 'ckeditor', array(
+                'config' => array(
+
+                    'toolbar' => array(
+                        array(
+                            'name'  => 'document',
+                            'items' => array('Source', '-', 'Save', 'NewPage', 'DocProps', 'Preview', 'Print', '-', 'Templates'),
+                        ),
+                        '/',
+                        array(
+                            'name'  => 'basicstyles',
+                            'items' => array('Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat'),
+                        ),
+                    ),
+                    'uiColor' => '#ffffff',
+                    //...
+                ),
             ))
         ;
     }

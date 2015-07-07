@@ -18,12 +18,24 @@ class BlogType extends AbstractType
             //->add('slug')
             ->add('title')
             ->add('author')
-            ->add('blog', 'textarea', array(
-                        'attr' => array(
-                            'class' => 'tinymce',
-                            'data-theme' => 'advanced' // Skip it if you want to use default theme
-                        )
-                    ))
+            ->add('blog', 'ckeditor', array(
+                'config' => array(
+
+                    'toolbar' => array(
+                        array(
+                            'name'  => 'document',
+                            'items' => array('Source', '-', 'Save', 'NewPage', 'DocProps', 'Preview', 'Print', '-', 'Templates', 'Image'),
+                        ),
+                        '/',
+                        array(
+                            'name'  => 'basicstyles',
+                            'items' => array('Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat'),
+                        ),
+                    ),
+                    'uiColor' => '#ffffff',
+                    //...
+                ),
+            ))
             //->add('image')
             ->add('tags')
             //->add('created')

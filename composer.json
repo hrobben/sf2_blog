@@ -24,6 +24,7 @@
         "doctrine/data-fixtures" : "dev-master",
         "doctrine/doctrine-migrations-bundle": "dev-master",
         "doctrine/migrations": "dev-master",
+        "egeloen/ckeditor-bundle": "^3.0",
         "stfalcon/tinymce-bundle": "dev-master"
     },
     "require-dev": {
