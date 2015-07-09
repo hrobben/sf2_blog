@@ -55,7 +55,7 @@ class BlogController extends Controller
             $file = $blog->getImage();
 
             // Generate a unique name for the file before saving it
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $fileName = md5($blog_id).'.'.$file->guessExtension();
 
             // Move the file to the directory where brochures are stored
             $imagesDir = $this->container->getParameter('kernel.root_dir').'/../web/images';
@@ -105,7 +105,7 @@ class BlogController extends Controller
                 $file = $blog->getImage();
 
                 // Generate a unique name for the file before saving it
-                $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+                $fileName = md5($blog_id) . '.' . $file->guessExtension();
 
                 // Move the file to the directory where brochures are stored
                 $imagesDir = $this->container->getParameter('kernel.root_dir') . '/../web/images';
