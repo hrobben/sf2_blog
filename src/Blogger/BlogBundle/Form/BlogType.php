@@ -20,7 +20,6 @@ class BlogType extends AbstractType
             ->add('author')
             ->add('blog', 'ckeditor', array(
                 'config' => array(
-
                     'toolbar' => array(
                         array(
                             'name'  => 'document',
@@ -36,7 +35,7 @@ class BlogType extends AbstractType
                     //...
                 ),
             ))
-            //->add('image')
+            ->add('image', 'file', array('data_class' => null, 'required' => false))
             ->add('tags')
             //->add('created')
             //->add('updated')

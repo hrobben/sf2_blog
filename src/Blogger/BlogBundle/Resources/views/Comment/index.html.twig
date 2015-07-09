@@ -5,7 +5,7 @@
         <header>
             <p><span class="highlight">{{ comment.user }}</span> commented <time datetime="{{ comment.created|date('c') }}">{{ comment.created|created_ago }}</time>
             {% if is_granted("ROLE_ADMIN") %}
-                <a href="{{ path('BloggerBlogBundle_comment_delete', { 'comment_id': comment.id }) }}">[[DELETE]]</a>
+                <a href="{{ path('BloggerBlogBundle_comment_delete', { 'comment_id': comment.id }) }}"><button type="button" class="btn btn-default">Delete</button></a>
             {% endif %}
             </p>
         </header>

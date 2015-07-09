@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "77421bae3e97fe8b0fc6e6c8ee3f8a70",
+    "hash": "86c7143b8f03154f18846a0da0ca1558",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -809,12 +809,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/migrations.git",
-                "reference": "70c580174e4e16a79296a02256fb40a34192731c"
+                "reference": "78954cce4962a4655ff47c0751eb78021fbaf2cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/70c580174e4e16a79296a02256fb40a34192731c",
-                "reference": "70c580174e4e16a79296a02256fb40a34192731c",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/78954cce4962a4655ff47c0751eb78021fbaf2cc",
+                "reference": "78954cce4962a4655ff47c0751eb78021fbaf2cc",
                 "shasum": ""
             },
             "require": {
@@ -822,9 +822,6 @@
                 "php": ">=5.4.0",
                 "symfony/console": "~2.3",
                 "symfony/yaml": "~2.3"
-            },
-            "conflict": {
-                "doctrine/orm": "<2.4"
             },
             "require-dev": {
                 "doctrine/coding-standard": "dev-master",
@@ -868,7 +865,7 @@
                 "database",
                 "migrations"
             ],
-            "time": "2015-06-29 10:57:05"
+            "time": "2015-07-05 21:24:36"
         },
         {
             "name": "doctrine/orm",
@@ -1152,6 +1149,58 @@
                 "sql"
             ],
             "time": "2014-01-12 16:20:24"
+        },
+        {
+            "name": "jms/metadata",
+            "version": "1.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/schmittjoh/metadata.git",
+                "reference": "22b72455559a25777cfd28c4ffda81ff7639f353"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/schmittjoh/metadata/zipball/22b72455559a25777cfd28c4ffda81ff7639f353",
+                "reference": "22b72455559a25777cfd28c4ffda81ff7639f353",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "doctrine/cache": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Metadata\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache"
+            ],
+            "authors": [
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com",
+                    "homepage": "https://github.com/schmittjoh",
+                    "role": "Developer of wrapped JMSSerializerBundle"
+                }
+            ],
+            "description": "Class/method/property metadata management in PHP",
+            "keywords": [
+                "annotations",
+                "metadata",
+                "xml",
+                "yaml"
+            ],
+            "time": "2014-07-12 07:13:19"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -1971,6 +2020,77 @@
                 "templating"
             ],
             "time": "2015-06-06 23:31:24"
+        },
+        {
+            "name": "vich/uploader-bundle",
+            "version": "v0.14.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dustin10/VichUploaderBundle.git",
+                "reference": "65d244d5e6ef62b4978585cdeb283b6cdab05f6b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dustin10/VichUploaderBundle/zipball/65d244d5e6ef62b4978585cdeb283b6cdab05f6b",
+                "reference": "65d244d5e6ef62b4978585cdeb283b6cdab05f6b",
+                "shasum": ""
+            },
+            "require": {
+                "jms/metadata": "~1.5",
+                "php": ">=5.3.2",
+                "symfony/finder": ">=2.0",
+                "symfony/framework-bundle": "~2.3",
+                "symfony/property-access": "~2.3"
+            },
+            "require-dev": {
+                "doctrine/doctrine-bundle": "*",
+                "doctrine/mongodb-odm": "@dev",
+                "doctrine/orm": "*",
+                "knplabs/knp-gaufrette-bundle": "*",
+                "matthiasnoback/symfony-dependency-injection-test": "0.*",
+                "mikey179/vfsstream": "~1.0",
+                "oneup/flysystem-bundle": "dev-master",
+                "phpunit/phpunit": "~4.0",
+                "symfony/symfony": "*"
+            },
+            "suggest": {
+                "doctrine/doctrine-bundle": "*",
+                "doctrine/mongodb-odm-bundle": "*",
+                "doctrine/orm": ">=2.2.3",
+                "doctrine/phpcr-odm": "~1.0",
+                "knplabs/knp-gaufrette-bundle": "*",
+                "symfony/yaml": "@stable",
+                "willdurand/propel-eventdispatcher-bundle": ">=1.2"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Vich\\UploaderBundle\\": "",
+                    "Vich\\TestBundle\\": "Tests/Fixtures/App/src/TestBundle/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dustin Dobervich",
+                    "email": "ddobervich@gmail.com"
+                }
+            ],
+            "description": "Ease file uploads attached to entities",
+            "homepage": "https://github.com/dustin10/VichUploaderBundle",
+            "keywords": [
+                "file uploads",
+                "upload"
+            ],
+            "time": "2014-12-12 10:26:46"
         }
     ],
     "packages-dev": [

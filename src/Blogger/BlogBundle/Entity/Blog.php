@@ -4,6 +4,7 @@
 namespace Blogger\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -43,7 +44,11 @@ class Blog
     protected $blog;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="string", length=50)
+     * @Assert\File(
+     *     maxSize = "1024k"
+     *
+     * )
      */
     protected $image;
 
@@ -230,6 +235,9 @@ class Blog
      */
     public function getImage()
     {
+        if ('' === $this->image || null === $this->image) {
+            return 'image.jpg';
+        }
         return $this->image;
     }
 

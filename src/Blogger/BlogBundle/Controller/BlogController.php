@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class BlogController extends Controller
 {
+    private $oldImage;
     /**
      * Show a blog entry
      */
@@ -48,7 +49,22 @@ class BlogController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $blog->setImage('image.jpg');
+            //$blog->setImage('image.jpg');
+            // $file stores the uploaded PDF file
+            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+            $file = $blog->getImage();
+
+            // Generate a unique name for the file before saving it
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+
+            // Move the file to the directory where brochures are stored
+            $imagesDir = $this->container->getParameter('kernel.root_dir').'/../web/images';
+            $file->move($imagesDir, $fileName);
+
+            // Update the 'brochure' property to store the PDF file name
+            // instead of its contents
+            $blog->setImage($fileName);
+
             $em = $this->getDoctrine()
                 ->getManager();
             $em->persist($blog);
@@ -66,14 +82,42 @@ class BlogController extends Controller
         ));
     }
 
+    public function removeFile($file)
+    {
+        $file_path = ''.$file;
+        if(file_exists($file_path)) unlink($file_path);
+    }
+
     public function editAction(Request $request, $blog_id)
     {
         $blog = $this->getBlog($blog_id);
+        $this->oldImage = $blog->getImage();  // option to delete unlink file if edit is chosen.
+
         $form = $this->createForm(new BlogType(), $blog);
         $form->handleRequest($request);
 
+
         if ($form->isValid()) {
-            $blog->setImage('image.jpg');
+            if ($form->get('image')->getData() !== null) {
+                $this->removeFile($this->oldImage);
+                // $file stores the uploaded PDF file
+                /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+                $file = $blog->getImage();
+
+                // Generate a unique name for the file before saving it
+                $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+
+                // Move the file to the directory where brochures are stored
+                $imagesDir = $this->container->getParameter('kernel.root_dir') . '/../web/images';
+                $file->move($imagesDir, $fileName);
+
+                // Update the 'brochure' property to store the PDF file name
+                // instead of its contents
+                $blog->setImage($fileName);
+            } else {
+                $blog->setImage($this->oldImage);
+            }
+
             $em = $this->getDoctrine()
                 ->getManager();
             $em->persist($blog);

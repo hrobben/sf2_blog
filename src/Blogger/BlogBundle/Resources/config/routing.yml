@@ -30,11 +30,11 @@ BloggerBlogBundle_comment_create:
         _method:  POST
         blog_id: \d+
 
-BloggerBlogBundle_document_upload:
-    pattern:  /upload/{doc_id}
-    defaults: { _controller: BloggerBlogBundle:Document:upload }
+BloggerBlogBundle_image_upload:
+    pattern:  /upload/{image_file}
+    defaults: { _controller: BloggerBlogBundle:Image:upload }
     requirements:
-        _method:  POST
+        _method:  GET|POST
         blog_id: \d+
 
 BloggerBlogBundle_blog_edit:

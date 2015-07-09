@@ -17,7 +17,7 @@
                 </h2>
             </header>
 
-            {# <img src="{{ asset(['images/', blog.image]|join) }}"/> #}
+            <img src="{{ asset(['images/', blog.image]|join) }}"/>
             <div class="snippet">
                 <p>{{ blog.blog(500) | trans | raw }}</p>
 
