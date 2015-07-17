@@ -130,6 +130,10 @@
                 <source>Amount</source>
                 <target>Bedrag</target>
             </trans-unit>
+            <trans-unit id="33">
+                <source>Minute</source>
+                <target>Minuut</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

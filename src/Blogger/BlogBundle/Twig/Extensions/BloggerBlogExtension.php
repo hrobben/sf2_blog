@@ -18,15 +18,15 @@ class BloggerBlogExtension extends \Twig_Extension
         if ($delta < 0)
             throw new \InvalidArgumentException("createdAgo is unable to handle dates in the future");
 
-        $duration = '';
+        $duration = "";
         if ($delta < 60) {
             // Seconds
             $time = $delta;
-            $duration = $time . ' '.$this->get('translator')->trans('second') . (($time > 1) ? $this->get('translator')->trans('s'): '') . ' '.$this->get('translator')->trans('ago');
+            $duration = $time . " second" . (($time > 1) ? "s" : "") . " ago";
         } else if ($delta < 3600) {
             // Mins
             $time = floor($delta / 60);
-            $duration = $time . ' minute' . (($time > 1) ? 's' : '') . ' ago';
+            $duration = $time . " minute" . (($time > 1) ? "s" : "") . " ago";
         } else if ($delta < 86400) {
             // Hours
             $time = floor($delta / 3600);
