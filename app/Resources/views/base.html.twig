@@ -45,6 +45,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
@@ -54,6 +55,7 @@
                     <li><a href="{{ path('BloggerBlogBundle_contact') }}">Contact</a></li>
                     {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
                         <li><a href="{{ path('logout') }}">Logout</a></li>
+                        <li><a href="{{ path('BloggerBlogBundle_setting') }}">Settings</a></li>
                     {% else %}
                         <li><a href="{{ path('admin') }}">Login</a></li>
                     {% endif %}

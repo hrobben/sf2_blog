@@ -1,5 +1,5 @@
 <?php
-// src/Blogger/BlogBundle/Entity/Abouts.php
+// src/Blogger/BlogBundle/Entity/Settings.php
 
 namespace Blogger\BlogBundle\Entity;
 
@@ -7,7 +7,7 @@ use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 
-class Abouts
+class Settings
 {
     protected $inhoud;
 

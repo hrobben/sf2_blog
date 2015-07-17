@@ -1,0 +1,26 @@
+{# src/Blogger/BlogBundle/Resources/views/Page/about.html.twig #}
+{% extends 'BloggerBlogBundle::layout.html.twig' %}
+
+{% block title %}Settings{% endblock%}
+
+{% block body %}
+    <header>
+        <h1>Settings Digieet</h1>
+    </header>
+    <article>
+        {% if is_granted('ROLE_ADMIN') %}
+            <p>Be very carefull with editing this values!</p>
+            <form action="{{ path('BloggerBlogBundle_setting') }}" method="post" {{ form_enctype(form) }} class="input-group">
+                {{ form_errors(form) }}
+
+                {{ form_row(form.inhoud) }}
+
+                {{ form_rest(form) }}
+
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        {%  else %}
+            <p>{{ textfile | raw }}</p>
+        {% endif %}
+    </article>
+{% endblock %}

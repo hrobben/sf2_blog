@@ -1,1 +1,3 @@
 <p>Digieet is een website onder beheer van Corry Scheepens.</p>
+
+<p><em>Dit is de ontwikkelomgeveing die Henry Robben gebruikt om zich te bekwamen in <strong>Symfony 2</strong> en om de <strong>Blog</strong> van Corry Scheepens, genaamd digieet te maken.</em></p>

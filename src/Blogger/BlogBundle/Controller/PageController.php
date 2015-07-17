@@ -7,9 +7,12 @@ use Blogger\BlogBundle\Entity\About;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Blogger\BlogBundle\Entity\Enquiry;
 use Blogger\BlogBundle\Entity\Abouts;
+use Blogger\BlogBundle\Entity\Settings;
+use Blogger\BlogBundle\Entity\Paypal;
 use Blogger\BlogBundle\Entity\User;
 use Blogger\BlogBundle\Form\EnquiryType;
 use Blogger\BlogBundle\Form\AboutType;
+use Blogger\BlogBundle\Form\SettingType;
 use Blogger\BlogBundle\Form\UserType;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -55,6 +58,33 @@ class PageController extends Controller
             'textfile' => $About->getInhoud()
         ));
     }
+
+    public function settingAction(Request $request)
+    {
+        $path = $this->get('kernel')->getRootDir() . '/config/parameters.yml';
+        $Setting = new Settings();
+        $Setting->setInhoud(file_get_contents($path));
+        $form = $this->createForm(new SettingType(), $Setting);
+
+        //$request = $this->getRequest();  decrepiated in future version 3.0
+        if ($request->getMethod() === 'POST') {
+            // $form->bind($request);  decrepiated Near Future
+            $form->handleRequest($request);
+
+            if ($form->isValid()) {
+                // Perform some action, such as sending an email
+                file_put_contents($path, $Setting->getInhoud());
+                // Redirect - This is important to prevent users re-posting
+                // the form if they refresh the page
+            }
+        }
+
+        return $this->render('BloggerBlogBundle:Page:setting.html.twig', array(
+            'form' => $form->createView(),
+            'textfile' => $Setting->getInhoud()
+        ));
+    }
+
 
     public function contactAction(Request $request)
     {
@@ -106,9 +136,46 @@ class PageController extends Controller
         $latestComments = $em->getRepository('BloggerBlogBundle:Comment')
             ->getLatestComments($commentLimit);
 
+        // call paypal values.
+        $paypal = new PayPal;
+        $credentials = array(
+            'API_UserName'      => $this->container->getParameter('API_UserName'),
+            'API_Password'      => $this->container->getParameter('API_Password'),
+            'API_Signature'      => $this->container->getParameter('API_Signature'),
+            'nvpStr'      => $this->container->getParameter('nvpStr')
+        );
+        $list = $paypal->PPHttpPost($credentials);
+        $count = count($list);
+        $valuetag = 'L_AMT';
+        $currencytag = 'L_CURRENCYCODE';
+        /*
+        Paypal answer API GetBalance
+        GetBalance Completed Successfully: Array
+        (
+            [L_AMT0] => 0%2e00
+            [L_AMT1] => 3%2e42
+            [L_CURRENCYCODE0] => EUR
+            [L_CURRENCYCODE1] => USD
+            [TIMESTAMP] => 2015%2d07%2d06T08%3a33%3a54Z
+            [CORRELATIONID] => eb155640cfe0
+            [ACK] => Success
+            [VERSION] => 51%2e0
+            [BUILD] => 17103657
+        )
+        */
+        $lists = [];
+        for ($i = 0; $i < ($count-5)/2; $i++)   //
+        {
+           $lists += array(
+               $list[$currencytag.$i] => urldecode($list[$valuetag.$i])
+           );
+        }
+
         return $this->render('BloggerBlogBundle:Page:sidebar.html.twig', array(
             'latestComments'    => $latestComments,
-            'tags'              => $tagWeights
+            'tags'              => $tagWeights,
+            'Show_PayPal'       => $this->container->getParameter('Show_PayPal'),
+            'lists'             => $lists
         ));
     }
 

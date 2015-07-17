@@ -17,3 +17,10 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    # setting for PayPal Saldo retrieval via API
+    API_UserName: paypal_api@test.com
+    API_Password: paypals_secret_code
+    API_Signature: PayPals_Secret_signature_about_very_long_hash_code....
+    nvpStr: &RETURNALLCURRENCIES=1
+    Show_PayPal: YES

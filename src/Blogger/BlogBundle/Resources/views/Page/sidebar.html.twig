@@ -1,5 +1,23 @@
 {# src/Blogger/BlogBundle/Resources/views/Page/sidebar.html.twig #}
 
+{#have to put in if statement for when activated #}
+{% if is_granted('ROLE_ADMIN') or Show_PayPal == 'YES' %}
+<section class="section">
+    <header>
+        <h3>PayPal Saldo</h3>
+    </header>
+    <p><table width="100%" class="paypal">
+    {% for key,value in lists %}
+            <tr>
+                <td align="LEFT">{{ key }}</td><td align="RIGHT">{{ value }}</td>
+                </tr>
+        {% else %}
+            <p>No PayPal</p>
+        {% endfor %}
+    </table></p>
+</section>
+{% endif %}
+
 <section class="section">
     <header>
         <h3>Tag Cloud</h3>
