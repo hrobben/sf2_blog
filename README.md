@@ -22,3 +22,6 @@ After login (ROLE_ADMIN):
 - paypal will only be visible if Show_PayPal: YES or ROLE_ADMIN
 
 
+To display different international settings like date and currency use php-intl:
+ 
+ - To use it your server has to have php-intl, intall look [here](http://konradpodgorski.com/blog/2011/12/29/how-to-symfony-2-please-install-the-intl-extension-for-full-localization-capabilities/)

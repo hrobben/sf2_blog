@@ -26,7 +26,8 @@
         "doctrine/migrations": "dev-master",
         "egeloen/ckeditor-bundle": "^3.0",
         "stfalcon/tinymce-bundle": "dev-master",
-        "vich/uploader-bundle": "^0.14.0"
+        "vich/uploader-bundle": "^0.14.0",
+        "twig/extensions": "^1.2"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

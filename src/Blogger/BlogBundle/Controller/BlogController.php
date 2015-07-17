@@ -36,7 +36,8 @@ class BlogController extends Controller
 
         return $this->render('BloggerBlogBundle:Blog:show.html.twig', array(
             'blog' => $blog,
-            'comments' => $comments
+            'comments' => $comments,
+            'locale' => $this->container->getParameter('locale')
         ));
     }
 
@@ -72,13 +73,15 @@ class BlogController extends Controller
 
             return $this->redirect($this->generateUrl('BloggerBlogBundle_blog_show', array(
                 'id' => $blog->getId(),
-                'slug' => $blog->getSlug()
+                'slug' => $blog->getSlug(),
+                'locale' => $this->container->getParameter('locale')
             )));
         }
 
         return $this->render('BloggerBlogBundle:Blog:create.html.twig', array(
             'blog' => $blog,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'locale' => $this->container->getParameter('locale')
         ));
     }
 
@@ -125,13 +128,15 @@ class BlogController extends Controller
 
             return $this->redirect($this->generateUrl('BloggerBlogBundle_blog_show', array(
                     'id' => $blog->getId(),
-                    'slug' => $blog->getSlug()
+                    'slug' => $blog->getSlug(),
+                    'locale' => $this->container->getParameter('locale')
             )));
         }
 
         return $this->render('BloggerBlogBundle:Blog:edit.html.twig', array(
             'blog' => $blog,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'locale' => $this->container->getParameter('locale')
         ));
     }
 

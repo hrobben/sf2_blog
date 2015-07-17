@@ -51,11 +51,11 @@
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="{{ path('BloggerBlogBundle_homepage') }}">Home</a></li>
-                    <li><a href="{{ path('BloggerBlogBundle_about') }}">About</a></li>
+                    <li><a href="{{ path('BloggerBlogBundle_about') }}">{{ 'About'|trans }}</a></li>
                     <li><a href="{{ path('BloggerBlogBundle_contact') }}">Contact</a></li>
                     {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
                         <li><a href="{{ path('logout') }}">Logout</a></li>
-                        <li><a href="{{ path('BloggerBlogBundle_setting') }}">Settings</a></li>
+                        <li><a href="{{ path('BloggerBlogBundle_setting') }}">{{ 'Settings'|trans }}</a></li>
                     {% else %}
                         <li><a href="{{ path('admin') }}">Login</a></li>
                     {% endif %}
@@ -79,8 +79,8 @@
 
             <nav>
                 <ul class="pager">
-                    <li><a href="{{ path('BloggerBlogBundle_homepage') }}">Previous</a></li>
-                    <li><a href="{{ path('BloggerBlogBundle_about') }}">Next</a></li>
+                    <li><a href="{{ path('BloggerBlogBundle_homepage') }}">{{ 'Previous'|trans }}</a></li>
+                    <li><a href="{{ path('BloggerBlogBundle_about') }}">{{ 'Next'|trans }}</a></li>
                 </ul>
             </nav>
 

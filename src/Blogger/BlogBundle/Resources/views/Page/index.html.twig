@@ -4,12 +4,12 @@
 
 {% block body %}
     {% if is_granted("ROLE_ADMIN") %}
-        <a href="{{ path('BloggerBlogBundle_blog_create') }}"><button type="button" class="btn btn-default">Write New BLOG</button></a>
+        <a href="{{ path('BloggerBlogBundle_blog_create') }}"><button type="button" class="btn btn-default">{{ 'Write New'|trans }} BLOG</button></a>
     {% endif %}
     {% for blog in blogs %}
         <article class="blog">
             <div class="date">
-                <time datetime="{{ blog.created|date('c') }}">{{ blog.created|date('l, F j, Y') }}</time>
+                <time datetime="{{ blog.created|date('c') }}">{{ blog.created|localizeddate('full', 'none', locale) }}</time>
             </div>
             <header>
                 <h2>
@@ -22,8 +22,7 @@
                 <p>{{ blog.blog(500) | trans | raw }}</p>
 
                 <p class="continue"><a
-                            href="{{ path('BloggerBlogBundle_blog_show', { 'id': blog.id, 'slug': blog.slug }) }}">Continue
-                        reading...</a></p>
+                            href="{{ path('BloggerBlogBundle_blog_show', { 'id': blog.id, 'slug': blog.slug }) }}">{{ 'Continue reading...'|trans }}</a></p>
             </div>
 
             <footer class="meta">
@@ -31,12 +30,12 @@
                             href="{{ path('BloggerBlogBundle_blog_show', { 'id': blog.id, 'slug': blog.slug }) }}#comments">{{ blog.comments|length }}</a>
                 </p>
 
-                <p>Posted by <span class="highlight">{{ blog.author }}</span> at {{ blog.created|date('h:iA') }}</p>
+                <p>Posted by <span class="highlight">{{ blog.author }}</span> at {{ blog.created|localizeddate('none', 'short', locale) }}</p>
 
                 <p>Tags: <span class="highlight">{{ blog.tags }}</span></p>
             </footer>
         </article>
     {% else %}
-        <p>There are no blog entries for symblog</p>
+        <p>{{ 'There are no blog entries for symblog'|trans }}</p>
     {% endfor %}
 {% endblock %}

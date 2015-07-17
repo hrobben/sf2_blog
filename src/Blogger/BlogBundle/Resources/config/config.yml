@@ -38,3 +38,9 @@ parameters:
                  plugins: ["bbcode, code, link, preview"]
                  menubar: false
                  toolbar1: "bold,italic,underline,undo,redo,link,unlink,removeformat,cleanup,code,preview"
+
+services:
+    twig.extension.intl:
+        class: Twig_Extensions_Extension_Intl
+        tags:
+            - { name: twig.extension }

@@ -4,7 +4,7 @@
 {% if is_granted('ROLE_ADMIN') or Show_PayPal == 'YES' %}
 <section class="section">
     <header>
-        <h3>PayPal Saldo</h3>
+        <h3>PayPal {{ 'Amount'|trans }}</h3>
     </header>
     <p><table width="100%" class="paypal">
     {% for key,value in lists %}
@@ -20,26 +20,26 @@
 
 <section class="section">
     <header>
-        <h3>Tag Cloud</h3>
+        <h3>Tag {{ 'Cloud'|trans }}</h3>
     </header>
     <p class="tags">
         {% for tag, weight in tags %}
         <span class="weight-{{ weight }}">{{ tag }}</span>
         {% else %}
 
-    <p>There are no tags</p>
+    <p>{{ 'There are no tags'|trans }}</p>
     {% endfor %}
     </p>
 </section>
 
 <section class="section">
     <header>
-        <h3>Latest Comments</h3>
+        <h3>{{ 'Latest'|trans }} {{ 'Comments'|trans }}</h3>
     </header>
     {% for comment in latestComments %}
         <article class="comment">
             <header>
-                <p class="small"><span class="highlight">{{ comment.user }}</span> commented on
+                <p class="small"><span class="highlight">{{ comment.user }}</span> {{ 'commented'|trans }} {{ 'on'|trans }}
                     <a href="{{ path('BloggerBlogBundle_blog_show', { 'id': comment.blog.id, 'slug': comment.blog.slug }) }}#comment-{{ comment.id }}">
                         {{ comment.blog.title }}
                     </a>
@@ -52,6 +52,6 @@
             </p>
         </article>
     {% else %}
-        <p>There are no recent comments</p>
+        <p>{{ 'There are no recent comments'|trans }}</p>
     {% endfor %}
 </section>

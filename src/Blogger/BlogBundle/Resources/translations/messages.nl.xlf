@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>About</source>
+                <target>Over</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>Previous</source>
+                <target>Vorige</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>Next</source>
+                <target>Volgende</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>Edit</source>
+                <target>Wijzig</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>Delete</source>
+                <target>Verwijder</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>Write New</source>
+                <target>Schrijf Nieuwe</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>at</source>
+                <target>om</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>ago</source>
+                <target>geleden</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>Settings</source>
+                <target>Instellingen</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>Latest</source>
+                <target>Nieuwste</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>Comments</source>
+                <target>Commentaar</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>Cloud</source>
+                <target>Wolk</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>Continue reading...</source>
+                <target>Verder lezen...</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>day</source>
+                <target>dag</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>week</source>
+                <target>week</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>month</source>
+                <target>maand</target>
+            </trans-unit>
+            <trans-unit id="17">
+                <source>year</source>
+                <target>jaar</target>
+            </trans-unit>
+            <trans-unit id="18">
+                <source>s</source>
+                <target>en</target>
+            </trans-unit>
+            <trans-unit id="19">
+                <source>There are no recent comments</source>
+                <target>Er zijn nog geen recente commentaren</target>
+            </trans-unit>
+            <trans-unit id="20">
+                <source>on</source>
+                <target>over</target>
+            </trans-unit>
+            <trans-unit id="21">
+                <source>commented</source>
+                <target>geeft commentaar</target>
+            </trans-unit>
+            <trans-unit id="22">
+                <source>There are no tags</source>
+                <target>Er zijn geen tags</target>
+            </trans-unit>
+            <trans-unit id="23">
+                <source>Submit</source>
+                <target>Verzenden</target>
+            </trans-unit>
+            <trans-unit id="24">
+                <source>There are no comments for this post. Be the first to comment...</source>
+                <target>Er zijn nog geen commentaren voor deze post. Word de eerste om commentaar te geven...</target>
+            </trans-unit>
+            <trans-unit id="25">
+                <source>New</source>
+                <target>Nieuw</target>
+            </trans-unit>
+            <trans-unit id="26">
+                <source>Add Comment</source>
+                <target>Commentaar Toevoegen</target>
+            </trans-unit>
+            <trans-unit id="27">
+                <source>Want to contact</source>
+                <target>Wilt u contact opnemen met</target>
+            </trans-unit>
+            <trans-unit id="28">
+                <source>Want to login?</source>
+                <target>Wilt u aanmelden?</target>
+            </trans-unit>
+            <trans-unit id="29">
+                <source>Login</source>
+                <target>Aanmelden</target>
+            </trans-unit>
+            <trans-unit id="30">
+                <source>Username</source>
+                <target>Gebruikersnaam</target>
+            </trans-unit>
+            <trans-unit id="31">
+                <source>Password</source>
+                <target>Wachtwoord</target>
+            </trans-unit>
+            <trans-unit id="32">
+                <source>Amount</source>
+                <target>Bedrag</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -17,7 +17,7 @@
     {% form_theme form 'bootstrap_3_layout.html.twig' %}
     {# {% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %} #}
 
-    <p>Want to contact symblog?</p>
+    <p>{{ 'Want to contact'|trans }} digieet?</p>
 
     <form action="{{ path('BloggerBlogBundle_contact') }}" method="post" {{ form_enctype(form) }} class="input-group">
         {{ form_errors(form) }}
@@ -29,6 +29,6 @@
 
         {{ form_rest(form) }}
 
-        <input type="submit" value="Submit" />
+        <button type="submit" class="btn btn-default">{{ 'Submit'|trans }}</button>
     </form>
 {% endblock %}

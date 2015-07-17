@@ -5,7 +5,7 @@
 
 {% block body %}
     <header>
-        <h1>About Digieet</h1>
+        <h1>{{ 'About'|trans }} Digieet</h1>
     </header>
     <article>
         {% if is_granted('ROLE_ADMIN') %}

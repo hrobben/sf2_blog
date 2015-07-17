@@ -29,7 +29,8 @@ class PageController extends Controller
             ->getLatestBlogs();
 
         return $this->render('BloggerBlogBundle:Page:index.html.twig', array(
-            'blogs' => $blogs
+            'blogs' => $blogs,
+            'locale' => $this->container->getParameter('locale')
         ));
     }
 
@@ -175,7 +176,8 @@ class PageController extends Controller
             'latestComments'    => $latestComments,
             'tags'              => $tagWeights,
             'Show_PayPal'       => $this->container->getParameter('Show_PayPal'),
-            'lists'             => $lists
+            'lists'             => $lists,
+            'locale' => $this->container->getParameter('locale')
         ));
     }
 

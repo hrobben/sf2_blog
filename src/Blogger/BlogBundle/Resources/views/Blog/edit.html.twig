@@ -1,8 +1,8 @@
 {% extends 'BloggerBlogBundle::layout.html.twig' %}
 
-{% block title %}Edit Blog{% endblock%}
+{% block title %}{{ 'Edit'|trans }} Blog{% endblock%}
 
 {% block body %}
-    <h1>Edit "{{ blog.title }}"</h1>
+    <h1>{{ 'Edit'|trans }} "{{ blog.title }}"</h1>
     {% include 'BloggerBlogBundle:Blog:eform.html.twig' with { 'form': form } %}
 {% endblock %}

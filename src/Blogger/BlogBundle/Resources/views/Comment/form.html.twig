@@ -5,6 +5,6 @@
 <form action="{{ path('BloggerBlogBundle_comment_create', { 'blog_id' : comment.blog.id } ) }}" method="post" {{ form_enctype(form) }} class="input-group">
     {{ form_widget(form) }}
     <p>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-default">{{ 'Submit'|trans }}</button>
     </p>
 </form>

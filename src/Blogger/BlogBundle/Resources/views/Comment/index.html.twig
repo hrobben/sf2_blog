@@ -5,12 +5,12 @@
         <header>
             <p><span class="highlight">{{ comment.user }}</span> commented <time datetime="{{ comment.created|date('c') }}">{{ comment.created|created_ago }}</time>
             {% if is_granted("ROLE_ADMIN") %}
-                <a href="{{ path('BloggerBlogBundle_comment_delete', { 'comment_id': comment.id }) }}"><button type="button" class="btn btn-default">Delete</button></a>
+                <a href="{{ path('BloggerBlogBundle_comment_delete', { 'comment_id': comment.id }) }}"><button type="button" class="btn btn-default">{{ 'Delete'|trans }}</button></a>
             {% endif %}
             </p>
         </header>
         <p>{{ comment.comment }}</p>
     </article>
 {% else %}
-    <p>There are no comments for this post. Be the first to comment...</p>
+    <p>{{ 'There are no comments for this post. Be the first to comment...'|trans }}</p>
 {% endfor %}
