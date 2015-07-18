@@ -30,7 +30,7 @@
                             href="{{ path('BloggerBlogBundle_blog_show', { 'id': blog.id, 'slug': blog.slug }) }}#comments">{{ blog.comments|length }}</a>
                 </p>
 
-                <p>Posted by <span class="highlight">{{ blog.author }}</span> at {{ blog.created|localizeddate('none', 'short', locale) }}</p>
+                <p>Posted by <span class="highlight">{{ blog.author }}</span> {{ 'at'|trans }} {{ blog.created|localizeddate('none', 'short', locale) }}</p>
 
                 <p>Tags: <span class="highlight">{{ blog.tags }}</span></p>
             </footer>

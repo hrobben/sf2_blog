@@ -131,8 +131,36 @@
                 <target>Bedrag</target>
             </trans-unit>
             <trans-unit id="33">
-                <source>Minute</source>
-                <target>Minuut</target>
+                <source>minute</source>
+                <target>minuut</target>
+            </trans-unit>
+            <trans-unit id="34">
+                <source>second</source>
+                <target>seconde</target>
+            </trans-unit>
+            <trans-unit id="35">
+                <source>hour</source>
+                <target>uur</target>
+            </trans-unit>
+            <trans-unit id="36">
+                <source>hours</source>
+                <target>uren</target>
+            </trans-unit>
+            <trans-unit id="37">
+                <source>minutes</source>
+                <target>minuten</target>
+            </trans-unit>
+            <trans-unit id="38">
+                <source>secondes</source>
+                <target>seconden</target>
+            </trans-unit>
+            <trans-unit id="39">
+                <source>days</source>
+                <target>dagen</target>
+            </trans-unit>
+            <trans-unit id="40">
+                <source>There are no blog entries for symblog</source>
+                <target>Er zijn geen blog items voor digieet</target>
             </trans-unit>
         </body>
     </file>
